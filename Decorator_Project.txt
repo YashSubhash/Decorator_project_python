@@ -1,0 +1,20 @@
+def log_message(func):
+    def message(*vals):
+        res = func(*vals)
+        file=open('F:/Users/Yashavanthgowda B P/PycharmProjects/Projects/decorator_logs.txt','a+')
+        file.write(res)
+        return res
+    return message
+
+@log_message
+def a_function_that_returns_a_string():
+      return "A string\n"
+@log_message
+def a_function_that_returns_a_string_with_newline(s):
+      return "{}\n".format(s)
+@log_message
+def a_function_that_returns_another_string(string=""):
+      return "Another String\n"
+a_function_that_returns_a_string()
+a_function_that_returns_a_string_with_newline(input("Enter the String to append: "))
+a_function_that_returns_another_string()
